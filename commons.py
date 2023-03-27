@@ -11,6 +11,7 @@ import io
 from PIL import Image
 
 
+
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -45,7 +46,7 @@ def get_net():
 
 def get_img_tensor(img_bytes):
     transform = transforms.Compose([
-        transforms.Resize(1023),
+        transforms.Resize(255),
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
     # dimensions = (32, 32)
@@ -53,4 +54,5 @@ def get_img_tensor(img_bytes):
     # img = cv2.resize(img, dimensions)
     img =Image.open(io.BytesIO(img_bytes))
     img_tensor = transform(img)
+    
     return img_tensor 

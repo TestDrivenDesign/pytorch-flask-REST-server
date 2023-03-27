@@ -1,0 +1,5 @@
+{
+    "name":"Pytorch Skin",
+    "description":"Skin cancer Classifier built using pytorch",
+    "keywords":["python","flask","Pytorch"]
+}
