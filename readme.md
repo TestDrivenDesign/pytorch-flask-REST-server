@@ -16,6 +16,8 @@ in terminal from dev path run:
 export FLASK_DEBUG=1
 flask run
 
+/upload endpoint takes post requests with image sent via multipart form with key of file.
+
 issues and roadblocks:
 
 error handling only for bad requests, when using try except block when calling model goes straight to exception need to remedy this.
