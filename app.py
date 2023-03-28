@@ -26,10 +26,9 @@ def upload():
     file=request.files['file']
     image= file.read()
     diagnosis=get_skin_prediction(image)
-    dummy_result =random.randint(0, 6)
-    print(dummy_result)
     
-    return jsonify({'type': dummy_result}), 200
+    
+    return jsonify({'type': diagnosis}), 200
 
     
 
