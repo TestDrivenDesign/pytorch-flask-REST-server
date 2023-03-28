@@ -8,12 +8,12 @@ numpy==1.24.2
 opencv-python==4.7.0.72
 pandas==1.5.3
 Pillow==9.3.0
-pipenv==2023.3.20
+
 
 requests==2.28.1
 
 torchvision==0.15.1
 transformers==4.27.3
 
-Werkzeug==2.2.3
+
 
