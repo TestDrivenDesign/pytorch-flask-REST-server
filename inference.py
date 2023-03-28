@@ -10,7 +10,7 @@ def get_skin_prediction(image_bytes):
     with torch.no_grad():
         output = net(tensor)
         output = torch.nn.functional.softmax(output, dim=-1)
-        assessment =torch.argmax(output, dim=-1)
-        dummy_result =random.randint(0, 6)
-        return dummy_result
+        assessment = int(torch.argmax(output, dim=-1))
+        dummy_result = random.randint(0, 6)
+        return assessment
 
