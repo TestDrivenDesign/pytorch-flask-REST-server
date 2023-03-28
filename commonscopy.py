@@ -49,6 +49,9 @@ def get_img_tensor(img_bytes):
         transforms.Resize(255),
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    # dimensions = (32, 32)
+    # img = cv2.imread(img_path)
+    # img = cv2.resize(img, dimensions)
     img =Image.open(io.BytesIO(img_bytes))
     img_tensor = transform(img)
     
