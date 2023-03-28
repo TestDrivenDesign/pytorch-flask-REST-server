@@ -11,7 +11,6 @@ import io
 from PIL import Image
 
 
-
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
