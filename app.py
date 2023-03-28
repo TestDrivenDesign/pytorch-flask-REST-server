@@ -10,13 +10,13 @@ def basic_get():
     return jsonify({'success': 'success'})
 @app.route('/upload', methods=['POST'])
 def upload():
-    if 'file' not in request.files:
-        return jsonify({'error': 'no file in request'}), 400
+    # if 'file' not in request.files:
+    #     return jsonify({'error': 'no file in request'}), 400
     
-    file = request.files['file']
+    # file = request.files['file']
 
-    if not allowed_file(file.filename):
-        return jsonify({'error': 'File type not allowed'}), 400
+    # if not allowed_file(file.filename):
+    #     return jsonify({'error': 'File type not allowed'}), 400
 
     
 
@@ -29,8 +29,8 @@ def upload():
 #     # except:
 #     #     return jsonify({'error': 'internal server error'}), 500
 
-    file=request.files['file']
-    image= file.read()
+    # file=request.files['file']
+    # image= file.read()
     # diagnosis=get_skin_prediction(image)
     dummy_result =random.randint(0, 6)
     
