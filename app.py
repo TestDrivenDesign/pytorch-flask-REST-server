@@ -3,7 +3,7 @@ import os
 from flask import Flask, request, Response, jsonify
 
 app = Flask(__name__)
-from inference import get_skin_prediction
+# from inference import get_skin_prediction
 
 
 @app.route('/upload', methods=['POST'])
@@ -29,9 +29,10 @@ def upload():
 
     file=request.files['file']
     image= file.read()
-    diagnosis=get_skin_prediction(image)
+    # diagnosis=get_skin_prediction(image)
+    dummy_result =random.randint(0, 6)
     
-    return jsonify({'type': diagnosis}), 200
+    return jsonify({'type': dummy_result}), 200
 
     
 
