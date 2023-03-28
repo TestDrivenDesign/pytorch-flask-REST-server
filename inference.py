@@ -1,7 +1,6 @@
 import json
 import torch
-r
-import random
+
 from numpy import random
 
 
