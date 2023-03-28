@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from numpy import random
 
 app = Flask(__name__)
-
+# from inference import get_skin_prediction
 
 @app.route('/', methods=['GET'])
 def basic_get():
@@ -21,11 +21,18 @@ def upload():
 
     
 
-#   
+#     # try:
+#     #     file=request.files['file']
+#     #     image= file.read()
+#     #     diagnosis=get_skin_prediction(image_bytes=image)
+#     #     print('hits')
+#     #     return jsonify({'type': diagnosis}), 200
+#     # except:
+#     #     return jsonify({'error': 'internal server error'}), 500
 
-    file=request.files['file']
-    image= file.read()
-    
+    # file=request.files['file']
+    # image= file.read()
+    # diagnosis=get_skin_prediction(image)
     dummy_result =random.randint(0, 6)
     print(dummy_result)
     
