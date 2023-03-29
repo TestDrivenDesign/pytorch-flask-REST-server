@@ -3,7 +3,7 @@ import torch
 from commons import get_net, get_img_tensor
 
 
-net=get_net().to('cpu')
+net=get_net()
 def get_skin_prediction(image_bytes):
     tensor = get_img_tensor(image_bytes)
     with torch.no_grad():
