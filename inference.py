@@ -1,7 +1,7 @@
 import json
 import torch
 from commons import get_net, get_img_tensor
-from numpy import random
+
 
 net=get_net().to('cpu')
 def get_skin_prediction(image_bytes):
@@ -10,6 +10,6 @@ def get_skin_prediction(image_bytes):
         output = net(tensor)
         output = torch.nn.functional.softmax(output, dim=-1)
         assessment = int(torch.argmax(output, dim=-1))
-        dummy_result = random.randint(0, 6)
+        
         return assessment
 

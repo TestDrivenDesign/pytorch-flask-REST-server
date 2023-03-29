@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, request, jsonify
 from numpy import random
 

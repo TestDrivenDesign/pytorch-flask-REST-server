@@ -1,8 +1,8 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-import cv2
-import matplotlib.pyplot as plt
+
+
 import numpy as np 
 import torch.nn as nn
 import torch.nn.functional as F
@@ -49,10 +49,9 @@ def get_img_tensor(img_bytes):
         transforms.Resize(255),
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-    # dimensions = (32, 32)
-    # img = cv2.imread(img_path)
-    # img = cv2.resize(img, dimensions)
-    img =Image.open(io.BytesIO(img_bytes))
+    img = Image.open(io.BytesIO(img_bytes))
     img_tensor = transform(img)
+    img_tensor -= torch.min(img_tensor)
+    img_tensor /= torch.max(img_tensor) 
     
     return img_tensor 
