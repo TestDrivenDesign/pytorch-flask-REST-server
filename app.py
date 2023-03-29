@@ -8,6 +8,7 @@ from inference import get_skin_prediction
 @app.route('/', methods=['GET'])
 def basic_get():
     return jsonify({'success': 'success'})
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'file' not in request.files:
