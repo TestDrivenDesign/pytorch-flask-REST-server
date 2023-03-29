@@ -1,7 +1,6 @@
 import json
 import torch
 from commons import get_net, get_img_tensor
-import random
 from numpy import random
 
 net=get_net().to('cpu')

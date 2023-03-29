@@ -19,23 +19,14 @@ def upload():
     if not allowed_file(file.filename):
         return jsonify({'error': 'File type not allowed'}), 400
 
-    
-
-
-
     file=request.files['file']
     image= file.read()
-    diagnosis=get_skin_prediction(image)
-    
-    
+    diagnosis=get_skin_prediction(image)   
     return jsonify({'type': diagnosis}), 200
-
-    
 
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 
 
 if __name__ == '__main__':
