@@ -1,18 +1,20 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
+
+
 import numpy as np 
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import io
 from PIL import Image
-import cv2
+
 
 
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-
 def get_net():
     class Net(nn.Module):
         def __init__(self):
@@ -36,19 +38,20 @@ def get_net():
             return x
 
     PATH = './test_net.pth'
-    net = Net().to('cpu')
+    net = Net()
     net.load_state_dict(torch.load(PATH, map_location='cpu'), strict=False)
     net.eval()
+
     return net
 
 def get_img_tensor(img_bytes):
     transform = transforms.Compose([
+        transforms.Resize(255),
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-    nparr = np.fromstring(img_bytes, np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    img = cv2.resize(img, (32, 32))
+    img = Image.open(io.BytesIO(img_bytes))
     img_tensor = transform(img)
     img_tensor -= torch.min(img_tensor)
-    img_tensor /= torch.max(img_tensor)   
+    img_tensor /= torch.max(img_tensor) 
+    
     return img_tensor 

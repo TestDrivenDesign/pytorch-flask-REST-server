@@ -4,7 +4,7 @@ https://download.pytorch.org/whl/cpu-cxx11-abi/torch-2.0.0%2Bcpu.cxx11.abi-cp310
 gunicorn==20.1.0
 
 numpy==1.24.2
-opencv-python==4.7.0.72
+opencv-python-headless==opencv-python-headless==4.2.0.32
 
 Pillow==9.3.0
 
