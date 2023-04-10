@@ -30,26 +30,20 @@ def get_net():
         self.fc3 = nn.Linear(256, 7)
         self.drop1 = nn.Dropout(0.25)
         self.drop2 = nn.Dropout(0.15)
-        self.use_norm = True
-        self.use_dropout = True
+        
  
     def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        if self.use_norm:
-            x = self.norm1(x)
-        x = self.pool(F.relu(self.conv2(x)))
-        if self.use_norm:
-            x = self.norm2(x)
-        x = self.pool(F.relu(self.conv3(x)))
-        if self.use_norm:
-            x = self.norm3(x)
+        x = self.pool(F.relu(self.conv1(x)))        
+        x = self.norm1(x)
+        x = self.pool(F.relu(self.conv2(x)))        
+        x = self.norm2(x)
+        x = self.pool(F.relu(self.conv3(x)))        
+        x = self.norm3(x)
         x = x.view(-1, int(8192/16))
-        x = F.relu(self.fc1(x))
-        if self.use_dropout:
-            x = self.drop1(x)
-        x = F.relu(self.fc2(x))
-        if self.use_dropout:
-            x = self.drop2(x)
+        x = F.relu(self.fc1(x))        
+        x = self.drop1(x)
+        x = F.relu(self.fc2(x))        
+        x = self.drop2(x)
         x = self.fc3(x)
         return x
 
