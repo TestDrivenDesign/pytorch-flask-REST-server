@@ -8,11 +8,12 @@ import torch.optim as optim
 from PIL import Image
 import cv2
 
-
+# defining transform parameters
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
+# defining nn architecture andd forward pass method
 def get_net():
     class Net(nn.Module):
         def __init__(self):
@@ -41,6 +42,7 @@ def get_net():
     net.eval()
     return net
 
+# function to convert img to tensor
 def get_img_tensor(img_bytes):
     transform = transforms.Compose([
         transforms.ToTensor(),

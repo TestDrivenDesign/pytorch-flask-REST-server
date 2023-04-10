@@ -7,7 +7,7 @@ from inference import get_skin_prediction
 
 @app.route('/', methods=['GET'])
 def basic_get():
-    return jsonify({'success': 'success'})
+    return jsonify({'endpoints': {'POST/upload': 'takes jpeg via multipart form with key of file'}})
 
 @app.route('/upload', methods=['POST'])
 def upload():
